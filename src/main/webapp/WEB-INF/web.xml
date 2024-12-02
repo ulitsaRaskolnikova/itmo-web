@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>ulitsa.raskolnikova.ControllerServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Checker</servlet-name>
+        <servlet-class>ulitsa.raskolnikova.AreaCheckServlet</servlet-class>
+        <init-param>
+            <param-name>LowerRangeR</param-name>
+            <param-value>1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>UpperRangeR</param-name>
+            <param-value>5</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/hit</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Checker</servlet-name>
+        <url-pattern>/Checker</url-pattern>
+    </servlet-mapping>
+
+<!--    <security-constraint>-->
+<!--        <web-resource-collection>-->
+<!--            <web-resource-name>Checker</web-resource-name>-->
+<!--            <url-pattern>/Checker</url-pattern>-->
+<!--        </web-resource-collection>-->
+<!--        <auth-constraint>-->
+<!--        </auth-constraint>-->
+<!--    </security-constraint>-->
+
+</web-app>
