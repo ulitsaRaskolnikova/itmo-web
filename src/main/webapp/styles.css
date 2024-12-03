@@ -119,34 +119,6 @@ input:active{
     color: #a5d6a7;
 }
 
-#r-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.r-button {
-    font-size: 16px;
-    padding: 10px 20px;
-    background-color: #a287d4;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color .3s, color .3s;
-}
-
-.r-button:hover {
-    background-color: #b5b74f;
-    color: white;
-}
-
-
-
-.r-button.active{
-    background-color: #00796b;
-    color: white;
-}
-
 
 
 #submit{
@@ -194,3 +166,85 @@ th {
     width: inherit;
 }
 
+/* Стили для кнопок */
+.button {
+    background-color: #4CAF50; /* Зеленый фон */
+    border: none; /* Убираем стандартную границу */
+    color: white; /* Белый текст */
+    padding: 15px 32px; /* Отступы вокруг текста */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Кнопки будут располагаться в строку */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении - указатель */
+    border-radius: 5px; /* Скругленные углы */
+    transition: all 0.3s ease; /* Плавный переход для всех свойств */
+}
+
+/* Эффект при наведении */
+.button:hover {
+    background-color: #45a049; /* Темнее зеленый фон */
+    transform: translateY(-3px); /* Поднимаем кнопку при наведении */
+}
+
+/* Эффект при нажатии */
+.button:active {
+    background-color: #388e3c; /* Еще темнее зеленый при нажатии */
+    transform: translateY(1px); /* Немного опускаем кнопку при нажатии */
+}
+
+/* Эффект при фокусе */
+.button:focus {
+    outline: none; /* Убираем стандартную обводку */
+    box-shadow: 0 0 10px rgba(72, 161, 70, 0.7); /* Легкое свечение вокруг кнопки */
+}
+
+/* Стили для нажатой кнопки */
+.button.active {
+    background-color: #388e3c; /* Темный цвет для нажатой кнопки */
+    transform: translateY(1px); /* Кнопка выглядит как нажатая */
+}
+
+/* Стили для кнопок */
+.r-button {
+    background-color: #4CAF50; /* Зеленый фон */
+    border: none; /* Убираем стандартную границу */
+    color: white; /* Белый текст */
+    padding: 15px 32px; /* Отступы вокруг текста */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Кнопки будут располагаться в строку */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении - указатель */
+    border-radius: 5px; /* Скругленные углы */
+    transition: all 0.3s ease; /* Плавный переход для всех свойств */
+}
+
+/* Эффект при наведении */
+.r-button:hover {
+    background-color: #45a049; /* Темнее зеленый фон */
+    transform: translateY(-3px); /* Поднимаем кнопку при наведении */
+}
+
+/* Эффект при нажатии */
+.r-button:active {
+    background-color: #388e3c; /* Еще темнее зеленый при нажатии */
+    transform: translateY(1px); /* Немного опускаем кнопку при нажатии */
+}
+
+/* Эффект при фокусе */
+.r-button:focus {
+    outline: none; /* Убираем стандартную обводку */
+    box-shadow: 0 0 10px rgba(72, 161, 70, 0.7); /* Легкое свечение вокруг кнопки */
+}
+
+/* Скрываем сами чекбоксы */
+.r-button-checkbox {
+    display: none;
+}
+
+/* Стиль для выбранных чекбоксов */
+.r-button-checkbox:checked + .r-button {
+    background-color: #388e3c; /* Темный цвет для выбранного чекбокса */
+    transform: translateY(1px); /* Кнопка выглядит как нажатая */
+}

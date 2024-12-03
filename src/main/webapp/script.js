@@ -1,7 +1,49 @@
 let form = document.getElementById('check-form');
-let rButtons = document.querySelectorAll('.r-button');
-let rValueInput = document.getElementById('r-value');
 document.addEventListener('DOMContentLoaded', main);
+
+let x = null;  // Переменная для хранения значения X
+
+// Получаем все кнопки
+const buttons = document.querySelectorAll('.button');
+
+// Добавляем слушатель события для каждой кнопки
+buttons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        // Убираем класс 'active' у всех кнопок
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Добавляем класс 'active' только к выбранной кнопке
+        event.target.classList.add('active');
+
+        // Обновляем значение переменной x
+        x = event.target.value;
+        console.log(`Значение X обновлено на: ${x}`);
+    });
+});
+
+    // Получаем все кнопки (r-buttons)
+    const rButtons = document.querySelectorAll('.r-button-checkbox');
+    const rValueInput = document.getElementById('r-value');
+
+    rButtons.forEach(button => {
+        button.addEventListener('change', (event) => {
+            // Убираем выбор с других кнопок (r-buttons)
+            rButtons.forEach(rButton => {
+                // Если это не текущий элемент и он выбран, сбрасываем его
+                if (rButton !== event.target) {
+                    rButton.checked = false;
+                }
+            });
+
+            // Обновляем скрытое поле с выбранным значением
+            if (event.target.checked) {
+                rValueInput.value = event.target.value;
+                console.log(`Значение R обновлено на: ${rValueInput.value}`);
+            } else {
+                rValueInput.value = '';  // Если checkbox снят, очищаем значение
+            }
+        });
+    });
 
 function main() {
     console.log("Работаем")
@@ -85,13 +127,8 @@ function setupSubmitForm() {
     })
 }
 
-function getXValue() {
-    const selectedRadio = document.querySelector('input[name="value"]:checked');
-    return selectedRadio ? selectedRadio.value : null;
-}
-
 function handleSubmitFrom() {
-    let xCord = getXValue();
+    let xCord = x;
     let yCord = document.getElementById('y').value;
     let rCord = rValueInput.value;
     if (validateForm(xCord, yCord, rCord)) {
@@ -145,7 +182,7 @@ async function sendRequest(x, y, r) {
         .catch(error => {
             console.error('Error fetching and displaying the page:', error);
         });
-    
+
 }
 
 function drawGraphic(rValue) {
